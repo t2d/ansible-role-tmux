@@ -1,0 +1,25 @@
+---
+# tasks file for ansible-role-tmux
+
+- name: Install packages
+  apt:
+    name: "{{ tmux_packages }}"
+
+- name: Copy pre-built Path Picker deb
+  copy:
+    src: fpp_{{ tmux_fpp_version }}_noarch.deb
+    dest: "{{ tmux_fpp_path }}/"
+
+- name: Install Facebook Path Picker
+  apt:
+    deb: "{{ tmux_fpp_path }}/fpp_{{ tmux_fpp_version }}_noarch.deb"
+
+- name: Get home directories of users
+  getent:
+    database: passwd
+    split: ":"
+
+- include_tasks: config.yml
+  loop: "{{ tmux_users }}"
+  loop_control:
+    loop_var: user

@@ -1,0 +1,15 @@
+---
+package:
+  tmux:
+    installed: true
+  pathpicker:
+    installed: true
+  urlview:
+    installed: true
+file:
+  /home/vagrant/.tmux.conf:
+    exists: true
+  /home/vagrant/.tmux.conf.local:
+    exists: true
+    contains:
+      - set -g mouse on

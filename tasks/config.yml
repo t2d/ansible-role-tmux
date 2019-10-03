@@ -1,0 +1,26 @@
+---
+- name: Provide default tmux config
+  copy:
+    src: tmux-config/.tmux.conf
+    dest: "{{ getent_passwd[user][4] }}/"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: 0644
+
+- name: Provide default user-specific tmux config once
+  copy:
+    src: tmux-config/.tmux.conf.local
+    dest: "{{ getent_passwd[user][4] }}/"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    mode: 0644
+    force: False
+  register: local
+
+- name: Change tmux defaults  # noqa 503
+  lineinfile:
+    dest: "{{ getent_passwd[user][4] }}/.tmux.conf.local"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  loop: "{{ tmux_defaults }}"
+  when: local.changed

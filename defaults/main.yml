@@ -1,0 +1,18 @@
+---
+# defaults file for ansible-role-tmux
+
+tmux_packages:
+  - tmux
+  - urlview
+
+tmux_fpp_version: 0.9.2
+
+tmux_fpp_path: /root/
+
+# configure tmux for following users
+tmux_users: []
+
+# change tmux defaults
+tmux_defaults:
+  - regexp: "^#?set -g mouse"
+    line: "set -g mouse on"
