@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: tmux
   author: t2d
   description: setup a useable tmux config including dependencies
 
