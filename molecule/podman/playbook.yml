@@ -1,0 +1,11 @@
+---
+- name: Converge
+  hosts: all
+  become: True
+  roles:
+    - role: ansible-role-tmux
+  vars:
+    tmux_packages:
+      - tmux
+      - urlview
+      - xz-utils

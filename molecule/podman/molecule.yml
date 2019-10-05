@@ -1,0 +1,15 @@
+---
+scenario:
+  name: podman
+dependency:
+  name: galaxy
+driver:
+  name: podman
+platforms:
+  - name: instance
+    image: "geerlingguy/docker-${MOLECULE_DISTRO:-debian10}-ansible:latest"
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
+    pre_build_image: true
+provisioner:
+  name: ansible
+  log: True
