@@ -8,14 +8,16 @@ addons:
     sources:
       - sourceline: 'ppa:projectatomic/ppa'
     packages:
-      # - uidmap
+      - uidmap
       - podman
+      - libffi-dev
+      - git
 before_install:
   - sudo mkdir -p /etc/containers
   - echo -e "[registries.search]\nregistries = ['docker.io', 'quay.io']" | sudo tee /etc/containers/registries.conf
   # we need to register travis to allow subuid/gid for the rootless execution
-  - echo "travis:110000:65535" | sudo tee /etc/subuid
-  - echo "travis:110000:65535" | sudo tee /etc/subgid
+  # - echo "travis:110000:65535" | sudo tee /etc/subuid
+  # - echo "travis:110000:65535" | sudo tee /etc/subgid
 
 env:
   matrix:
