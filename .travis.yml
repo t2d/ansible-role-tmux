@@ -4,6 +4,7 @@ cache: pip
 dist: xenial
 addons:
   apt:
+    update: True
     sources:
       - sourceline: 'ppa:projectatomic/ppa'
     packages:
