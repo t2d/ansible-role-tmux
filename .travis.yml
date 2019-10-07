@@ -13,6 +13,8 @@ addons:
 before_install:
   - sudo mkdir -p /etc/containers
   - sudo sh -c "echo \"[registries.search]\nregistries = ['docker.io', 'quay.io']\" > /etc/containers/registries.conf"
+  - sudo cat /etc/containers/policy.json
+  - sudo cat /usr/share/containers/seccomp.json
 
 env:
   matrix:
