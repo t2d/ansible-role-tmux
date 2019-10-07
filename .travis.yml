@@ -24,7 +24,7 @@ install:
   - pip install --upgrade molecule
 
 script:
-  - sudo molecule test -s podman
+  - molecule test -s podman
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
