@@ -20,7 +20,7 @@ env:
 
 install:
   # Install test dependencies.
-  - sudo pip install molecule
+  - sudo pip install --upgrade molecule
 
 script:
   - sudo molecule test -s podman
