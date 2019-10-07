@@ -13,12 +13,11 @@ addons:
 before_install:
   - sudo mkdir -p /etc/containers
   - sudo sh -c "echo \"[registries.search]\nregistries = ['docker.io', 'quay.io']\" > /etc/containers/registries.conf"
-  - sudo cat /etc/containers/policy.json
-  - sudo cat /usr/share/containers/seccomp.json
 
 env:
   matrix:
     - MOLECULE_DISTRO: debian10
+    - MOLECULE_DISTRO: debian9
     - MOLECULE_DISTRO: ubuntu1804
 
 install:
