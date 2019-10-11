@@ -27,8 +27,8 @@ env:
 
 install:
   # Install test dependencies.
-  # - pip install --upgrade molecule
-  pip install -U git+https://github.com/ansible/molecule
+  - pip install molecule
+  # pip install -U git+https://github.com/ansible/molecule
 
 script:
   - molecule test -s podman
