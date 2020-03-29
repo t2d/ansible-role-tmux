@@ -4,6 +4,7 @@
 - name: Install packages
   apt:
     name: "{{ tmux_packages }}"
+    update_cache: true
 
 - name: Copy pre-built Path Picker deb
   copy:
